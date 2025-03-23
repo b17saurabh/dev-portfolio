@@ -1,4 +1,4 @@
-import { redirect } from "next/naviga~tion";
+import { redirect } from "next/navigation";
  
 
 
