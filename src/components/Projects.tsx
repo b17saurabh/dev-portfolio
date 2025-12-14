@@ -10,6 +10,8 @@ export default function Projects() {
         'Core backend engineer on multiple enterprise-scale systems powering Accops’ digital workspace, identity, reporting, and multi-cloud orchestration platform.',
       details: [
         'Built Accops Reporting Server using .NET Core and Python FastAPI with REST APIs, background listeners, and scheduled jobs',
+        'Designed FastAPI services that directly communicate with Elasticsearch, dynamically generating queries based on selected visualizations, filters, and aggregation parameters',
+        'Implemented complex Elasticsearch aggregations to support dashboards such as bar charts, pie charts, trend analysis, and tenant-level analytics',
         'Designed and operated MongoDB clusters with sharding and replica sets; implemented Redis Sentinel for high availability',
         'Containerized services and deployed on Kubernetes with Nginx Ingress, API load balancing, and CNAME-based routing',
         'Developed Google Cloud VM Provider connector for HyWorks supporting VM lifecycle and network operations',
@@ -19,6 +21,7 @@ export default function Projects() {
       technologies: [
         '.NET Core',
         'Python FastAPI',
+        'Elasticsearch',
         'Kubernetes',
         'Docker',
         'MongoDB',
@@ -29,7 +32,6 @@ export default function Projects() {
         'Distributed Systems',
       ],
     },
-    
     {
       title: 'EnrichMe AI – AI-Powered Hiring Platform',
       description:

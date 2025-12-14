@@ -5,9 +5,23 @@ import { motion } from 'framer-motion';
 export default function Experience() {
   const experiences = [
     {
+      company: 'IMIX Software Pvt. Ltd. (Investment Software Group, London, UK)',
+      position: 'Full Stack Developer',
+      period: 'July 2025 – Present',
+      location: 'Noida, India',
+      achievements: [
+        'Working on an enterprise Wealth Management Platform for investment firms built on a monolithic .NET and MS SQL Server architecture.',
+        'Contributing to feature enhancements and maintenance of Angular-based front-end modules integrated with .NET APIs.',
+        'Assisting in development, debugging, and optimization of SQL stored procedures, triggers, and views implementing core business logic.',
+        'Collaborating with senior developers to improve query efficiency, ensure data consistency, and maintain application performance.',
+        'Gaining hands-on exposure to financial domain workflows, reporting modules, and portfolio management logic within SQL layers.',
+        'Actively learning architectural practices for transitioning legacy modules towards modular, service-oriented design.',
+      ],
+    },
+    {
       company: 'Tensech Solution Pvt. Ltd.',
       position: 'Software Developer',
-      period: 'Aug 2022 - Present',
+      period: 'Aug 2022 - July 2025',
       location: 'Noida, India',
       achievements: [
         'Led the Accops Reporting Server project, redesigning it into microservices using .NET Core and Python FastAPI, making it horizontally scalable and reducing API response times by 43%.',
