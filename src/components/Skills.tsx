@@ -18,7 +18,10 @@ export default function Skills() {
       'REST APIs',
     ],
     'Frontend': [
-      'Angular JS',
+      'Angular',
+      'Figma',
+      'NextJS',
+      'Bootstrap'
     ],
     'Cloud & DevOps': [
       'GCP',
