@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Backend Developer Portfolio",
-  description: "Professional portfolio of a 3-year experienced backend developer",
+  title: "Saurabh Batham | Software Development Engineer",
+  description:
+    "Product-minded software engineer portfolio focused on backend systems, cloud infrastructure, and measurable engineering impact.",
 };
 
 export default function RootLayout({
@@ -16,9 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

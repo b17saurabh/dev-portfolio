@@ -3,72 +3,62 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+const metrics = [
+  { label: 'API latency reduced', value: '43%', note: 'Accops Reporting Server redesign' },
+  { label: 'Concurrent submissions', value: '500+', note: 'Secure EnrichMe coding platform' },
+  { label: 'Production domains', value: '5', note: 'Workspace, hiring, wealth, travel, cloud' },
+];
+
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-16">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+    <section id="home" className="border-b border-gray-200 bg-[#f8f9fa]">
+      <div className="portfolio-container grid min-h-[calc(100vh-4rem)] items-center gap-12 py-16 lg:grid-cols-[1.08fr_0.92fr]">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center"
+          transition={{ duration: 0.45 }}
         >
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold mb-4"
-          >
+          <p className="section-kicker">Software Development Engineer</p>
+          <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] text-gray-950 md:text-7xl">
             Saurabh Batham
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6"
-          >
-            Software Development Engineer
-          </motion.p>
-          {/* <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex flex-wrap justify-center gap-4 mb-8"
-          >
-            <a href="mailto:saurabhbatham17@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-              saurabhbatham17@gmail.com
-            </a>
-            <a href="https://saurabhbatham.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-              saurabhbatham.com
-            </a>
-            <a href="https://github.com/b17saurabh" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-              github.com/b17saurabh
-            </a>
-            <a href="https://linkedin.com/in/b17saurabh" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
-              linkedin.com/in/b17saurabh
-            </a>
-          </motion.div> */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex gap-4 justify-center"
-          >
+          </h1>
+          <p className="mt-6 max-w-2xl text-xl leading-8 text-gray-700">
+            Backend and full-stack engineer building scalable systems across identity, reporting,
+            cloud orchestration, hiring, wealth management, and travel platforms.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="#projects"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+              className="rounded bg-gray-950 px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-gray-800"
             >
               View Projects
             </Link>
             <Link
               href="#contact"
-              className="border border-blue-600 text-blue-600 px-6 py-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+              className="rounded border border-gray-300 bg-white px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gray-950 transition hover:border-gray-950"
             >
               Contact Me
             </Link>
-          </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.15 }}
+          className="grid gap-4"
+        >
+          {metrics.map((metric) => (
+            <div key={metric.label} className="metric-card">
+              <p className="mono-label">{metric.label}</p>
+              <p className="mt-4 text-5xl font-extrabold leading-none text-gray-950">
+                {metric.value}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-gray-600">{metric.note}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
   );
-} 
+}
