@@ -3,41 +3,49 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+const portraitUrl = '/assets/headshot.png';
+
 const metrics = [
-  { label: 'API latency reduced', value: '43%', note: 'Accops Reporting Server redesign' },
-  { label: 'Concurrent submissions', value: '500+', note: 'Secure EnrichMe coding platform' },
-  { label: 'Production domains', value: '5', note: 'Workspace, hiring, wealth, travel, cloud' },
+  { label: 'Latency reduction', value: '43%', note: 'Optimized core API' },
+  { label: 'Concurrent users', value: '500+', note: 'Secure sandbox submissions' },
+  { label: 'Production domains', value: '5', note: 'Enterprise systems shipped' },
+  { label: 'Reliability scope', value: '24/7', note: 'Deployments and troubleshooting' },
 ];
 
 export default function Hero() {
   return (
-    <section id="home" className="border-b border-gray-200 bg-[#f8f9fa]">
-      <div className="portfolio-container grid min-h-[calc(100vh-4rem)] items-center gap-12 py-16 lg:grid-cols-[1.08fr_0.92fr]">
+    <>
+      <section id="home" className="portfolio-container flex flex-col items-center gap-8 px-4 pb-20 pt-36 md:flex-row md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
+          className="flex-1 space-y-4"
         >
-          <p className="section-kicker">Software Development Engineer</p>
-          <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.05] text-gray-950 md:text-7xl">
-            Saurabh Batham
+          <div className="inline-block bg-[var(--surface-muted)] px-3 py-1 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[var(--primary)]">
+            Product-Minded Engineering
+          </div>
+          <h1 className="max-w-2xl text-5xl font-bold leading-[1.04] tracking-[-0.025em] text-[var(--primary)] md:text-[4.45rem]" style={{ fontFamily: 'var(--font-display)' }}>
+            Saurabh Batham. <br />
+            <span className="text-[#0051d5]">Backend-Heavy</span> Full Stack Developer.
           </h1>
-          <p className="mt-6 max-w-2xl text-xl leading-8 text-gray-700">
-            Backend and full-stack engineer building scalable systems across identity, reporting,
-            cloud orchestration, hiring, wealth management, and travel platforms.
+          <p className="max-w-xl text-lg leading-7 text-[var(--text-muted)]">
+            Full stack developer with a backend-first mindset and hands-on DevOps exposure,
+            building scalable systems across identity, reporting, cloud orchestration, hiring,
+            wealth management, and travel platforms. I engineer for outcomes, not just output.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="flex flex-col gap-4 pt-4 sm:flex-row">
             <Link
               href="#projects"
-              className="rounded bg-gray-950 px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-gray-800"
+              className="bg-[var(--primary)] px-8 py-4 text-center font-mono text-xs font-semibold uppercase tracking-[0.05em] text-[var(--surface)]"
             >
-              View Projects
+              View Case Studies
             </Link>
             <Link
-              href="#contact"
-              className="rounded border border-gray-300 bg-white px-5 py-3 text-center font-mono text-xs font-semibold uppercase tracking-[0.12em] text-gray-950 transition hover:border-gray-950"
+              href="#philosophy"
+              className="border border-[var(--surface-line)] px-8 py-4 text-center font-mono text-xs font-semibold uppercase tracking-[0.05em] text-[var(--text)] transition hover:bg-[var(--surface-muted)]"
             >
-              Contact Me
+              The Philosophy
             </Link>
           </div>
         </motion.div>
@@ -45,20 +53,42 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, delay: 0.15 }}
-          className="grid gap-4"
+          transition={{ duration: 0.45, delay: 0.12 }}
+          className="w-full flex-1"
         >
-          {metrics.map((metric) => (
-            <div key={metric.label} className="metric-card">
-              <p className="mono-label">{metric.label}</p>
-              <p className="mt-4 text-5xl font-extrabold leading-none text-gray-950">
-                {metric.value}
-              </p>
-              <p className="mt-3 text-sm leading-6 text-gray-600">{metric.note}</p>
-            </div>
-          ))}
+          <div className="aspect-square overflow-hidden bg-[var(--surface-muted)] shadow-[18px_18px_0_var(--surface-line)]">
+            <img
+              src={portraitUrl}
+              alt="Professional portrait"
+              className="h-full w-full object-cover grayscale opacity-90"
+            />
+          </div>
         </motion.div>
-      </div>
-    </section>
+      </section>
+
+      <section className="section-shell">
+        <div className="portfolio-container">
+          <div className="mb-8">
+            <h2 className="mb-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-muted)]">
+              Live Impact Metrics
+            </h2>
+            <div className="h-1 w-12 bg-[#0051d5]" />
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+            {metrics.map((metric, index) => (
+              <div key={metric.label} className="metric-card">
+                <span className="mb-2 block font-mono text-xs font-semibold uppercase tracking-[0.05em] text-[var(--text-muted)]">
+                  {metric.label}
+                </span>
+                <div className={`text-[2.5rem] font-extrabold leading-none tracking-[-0.02em] ${index === 1 ? 'text-[#0051d5]' : 'text-[var(--primary)]'}`}>
+                  {metric.value}
+                </div>
+                <p className="mt-2 font-mono text-xs font-semibold text-[var(--text-muted)]">{metric.note}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

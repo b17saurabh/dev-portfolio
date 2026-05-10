@@ -38,7 +38,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="section-shell border-b border-gray-200 bg-white">
+    <section id="experience" className="section-shell border-b border-[var(--surface-line)]">
       <div className="portfolio-container">
         <p className="section-kicker">Professional Journey</p>
         <h2 className="section-title">Delivery across product-critical systems.</h2>
@@ -55,13 +55,13 @@ export default function Experience() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.45, delay: index * 0.08 }}
-              className="rounded-lg border border-gray-200 bg-white p-5 md:p-7"
+              className="border border-[var(--surface-line)] bg-[var(--surface)] p-5 md:p-7"
             >
               <div className="grid gap-6 lg:grid-cols-[0.35fr_0.65fr]">
                 <div>
                   <p className="mono-label">{exp.signal}</p>
-                  <h3 className="mt-3 text-2xl font-bold text-gray-950">{exp.position}</h3>
-                  <p className="mt-3 text-sm leading-6 text-gray-600">{exp.company}</p>
+                  <h3 className="mt-3 text-2xl font-bold text-[var(--text)]">{exp.position}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[var(--text-muted)]">{exp.company}</p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     <span className="chip">{exp.period}</span>
                     <span className="chip">{exp.location}</span>
@@ -69,7 +69,7 @@ export default function Experience() {
                 </div>
                 <ul className="grid gap-3">
                   {exp.achievements.map((achievement) => (
-                    <li key={achievement} className="flex gap-3 text-sm leading-6 text-gray-700">
+                    <li key={achievement} className="flex gap-3 text-sm leading-6 text-[var(--text-muted)]">
                       <span className="mt-2 h-2 w-2 flex-none rounded-full bg-blue-600" />
                       <span>{achievement}</span>
                     </li>

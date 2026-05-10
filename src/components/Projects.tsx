@@ -111,7 +111,7 @@ const item = {
 
 export default function Projects() {
   return (
-    <section id="projects" className="section-shell border-b border-gray-200 bg-[#f8f9fa]">
+    <section id="projects" className="section-shell border-b border-[var(--surface-line)]">
       <div className="portfolio-container">
         <p className="section-kicker">Selected Work</p>
         <h2 className="section-title">Project tiles led by engineering impact.</h2>
@@ -131,17 +131,21 @@ export default function Projects() {
             <motion.article key={project.title} variants={item} className="metric-card flex flex-col">
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <p className="mono-label">Key result</p>
-                  <h3 className="mt-3 text-2xl font-bold leading-8 text-gray-950">{project.title}</h3>
+                  <h3 className="mt-3 text-2xl font-bold leading-8 text-[var(--text)]">{project.title}</h3>
                 </div>
-                <span className="w-fit rounded bg-emerald-50 px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.12em] text-emerald-700">
-                  {project.impact}
-                </span>
+                <div className="w-fit">
+                  <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--text-muted)]">
+                    Project outcome
+                  </p>
+                  <span className="block bg-emerald-50 px-3 py-2 font-mono text-xs font-bold uppercase tracking-[0.12em] text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-300">
+                    {project.impact}
+                  </span>
+                </div>
               </div>
-              <p className="mt-5 text-sm leading-6 text-gray-700">{project.description}</p>
+              <p className="mt-5 text-sm leading-6 text-[var(--text-muted)]">{project.description}</p>
               <ul className="mt-5 grid gap-2">
                 {project.details.map((detail) => (
-                  <li key={detail} className="flex gap-3 text-sm leading-6 text-gray-600">
+                  <li key={detail} className="flex gap-3 text-sm leading-6 text-[var(--text-muted)]">
                     <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-blue-600" />
                     <span>{detail}</span>
                   </li>

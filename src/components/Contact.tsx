@@ -22,7 +22,7 @@ const links = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-shell bg-white">
+    <section id="contact" className="section-shell">
       <div className="portfolio-container">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
@@ -46,14 +46,14 @@ export default function Contact() {
                 href={link.href}
                 target={link.href.startsWith('http') ? '_blank' : undefined}
                 rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group rounded-lg border border-gray-200 bg-[#f8f9fa] p-5 transition hover:border-gray-950 hover:bg-white"
+                className="group border border-[var(--surface-line)] bg-[var(--surface)] p-5 transition hover:border-[var(--primary)]"
               >
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="mono-label">{link.label}</p>
-                    <p className="mt-2 break-words text-lg font-bold text-gray-950">{link.value}</p>
+                    <p className="mt-2 break-words text-lg font-bold text-[var(--text)]">{link.value}</p>
                   </div>
-                  <span className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-blue-700 transition group-hover:text-gray-950">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-blue-700 transition group-hover:text-[var(--primary)]">
                     Open
                   </span>
                 </div>

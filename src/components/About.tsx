@@ -10,8 +10,8 @@ const principles = [
 
 export default function About() {
   return (
-    <section id="about" className="section-shell border-b border-gray-200 bg-white">
-      <div className="portfolio-container grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+    <section id="about" className="section-shell border-b border-[var(--surface-line)]">
+      <div className="portfolio-container grid gap-12 lg:grid-cols-[1fr_1.25fr]">
         <div>
           <p className="section-kicker">About</p>
           <h2 className="section-title">Adaptable engineer for complex product systems.</h2>
@@ -23,7 +23,7 @@ export default function About() {
           transition={{ duration: 0.45 }}
           className="space-y-8"
         >
-          <div className="space-y-5 text-lg leading-8 text-gray-700">
+          <div className="space-y-5 text-lg leading-8 text-[var(--text-muted)]">
             <p>
               A highly adaptable Software Development Engineer with a passion for solving complex
               problems and building efficient, scalable systems. Experienced in designing backend
@@ -37,11 +37,11 @@ export default function About() {
           </div>
           <div className="grid gap-3">
             {principles.map((principle, index) => (
-              <div key={principle} className="flex gap-4 rounded-lg border border-gray-200 bg-[#f8f9fa] p-4">
+              <div key={principle} className="flex gap-4 border border-[var(--surface-line)] bg-[var(--surface)] p-4">
                 <span className="font-mono text-sm font-bold text-blue-700">
                   {String(index + 1).padStart(2, '0')}
                 </span>
-                <p className="text-sm leading-6 text-gray-700">{principle}</p>
+                <p className="text-sm leading-6 text-[var(--text-muted)]">{principle}</p>
               </div>
             ))}
           </div>
