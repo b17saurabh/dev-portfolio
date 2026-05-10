@@ -3,17 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --surface: #f8f9fa;
+  --surface-card: #ffffff;
+  --surface-muted: #f3f4f5;
+  --surface-line: #e1e3e4;
+  --text: #191c1d;
+  --text-muted: #45464c;
+  --primary: #111827;
+  --secondary: #2563eb;
+  --tertiary: #10b981;
+  --font-inter: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  --grid-line: rgba(17, 24, 39, 0.06);
+  --grid-glow: rgba(0, 81, 213, 0.10);
+  --section-bg: rgba(248, 249, 250, 0.72);
+  --section-card: rgba(255, 255, 255, 0.82);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.dark {
+  --surface: #101314;
+  --surface-card: #171a1c;
+  --surface-muted: #1f2427;
+  --surface-line: #30363a;
+  --text: #f0f1f2;
+  --text-muted: #c6c6cd;
+  --primary: #ffffff;
+  --secondary: #8fb4ff;
+  --tertiary: #4edea3;
+  --grid-line: rgba(240, 241, 242, 0.08);
+  --grid-glow: rgba(143, 180, 255, 0.14);
+  --section-bg: rgba(16, 19, 20, 0.58);
+  --section-card: rgba(18, 22, 24, 0.72);
 }
 
 html {
@@ -21,20 +42,72 @@ html {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
+  min-height: 100vh;
+  color: var(--text);
+  background: var(--surface);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 @layer components {
-  .section-title {
-    @apply text-3xl font-bold text-center mb-12;
+  .engineering-bg {
+    background:
+      radial-gradient(circle at 15% 12%, var(--grid-glow), transparent 26rem),
+      radial-gradient(circle at 85% 0%, rgba(78, 222, 163, 0.10), transparent 22rem),
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+      var(--surface);
+    background-size: auto, auto, 56px 56px, 56px 56px, auto;
   }
-  
-  .container {
-    @apply max-w-7xl mx-auto px-4;
+
+  .surface-panel {
+    background-color: var(--section-card);
+    color: var(--text);
+    backdrop-filter: blur(10px);
+  }
+
+  .portfolio-container {
+    @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6;
+  }
+
+  .section-shell {
+    @apply py-20 md:py-24;
+    background-color: var(--section-bg);
+    backdrop-filter: blur(2px);
+  }
+
+  .section-kicker {
+    @apply mb-4 inline-flex w-fit border border-[var(--surface-line)] bg-[var(--surface-muted)] px-3 py-1 font-mono text-[0.68rem] font-semibold uppercase tracking-[0.16em];
+    color: var(--secondary);
+  }
+
+  .section-title {
+    @apply max-w-3xl text-3xl font-bold leading-[1.08] tracking-[-0.015em] md:text-[2.75rem];
+    color: var(--text);
+    font-family: var(--font-display);
+  }
+
+  .section-copy {
+    @apply mt-4 max-w-3xl text-base leading-7 md:text-lg;
+    color: var(--text-muted);
+  }
+
+  .metric-card {
+    @apply border p-8 transition hover:shadow-[0_4px_12px_rgba(0,0,0,0.02)];
+    border-color: var(--surface-line);
+    background-color: var(--section-card);
+  }
+
+  .mono-label {
+    @apply font-mono text-xs font-semibold uppercase tracking-[0.12em];
+    color: var(--text-muted);
+  }
+
+  .chip {
+    @apply border px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.08em];
+    border-color: var(--surface-line);
+    background-color: var(--section-card);
+    color: var(--text-muted);
   }
 }
