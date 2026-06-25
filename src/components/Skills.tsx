@@ -8,7 +8,7 @@ const skills = {
   Frontend: ['Angular', 'Figma', 'NextJS', 'Bootstrap'],
   'Cloud & DevOps': ['GCP', 'Azure Cloud', 'Docker', 'Kubernetes', 'Linux', 'Networking'],
   Databases: ['SQL Server', 'PostgreSQL', 'MongoDB', 'MySQL', 'OpenSearch', 'Elasticsearch'],
-  Tools: ['Git', 'Azure DevOps', 'SAML', 'Pub/Sub', 'LDAP', 'xUnit', 'PyUnit', 'Apex Charts'],
+  Tools: ['Git', 'Azure DevOps', 'SAML', 'Pub/Sub', 'LDAP', 'xUnit', 'PyUnit', 'Apex Charts', 'Open Telemetry'],
   Infrastructure: ['Clustering', 'API Gateways (Nginx)', 'CNAME-based routing'],
   Security: ['Authentication', 'Authorization', 'Cryptography'],
   'Soft Skills': ['Problem-Solving', 'Communication', 'Team Collaboration'],

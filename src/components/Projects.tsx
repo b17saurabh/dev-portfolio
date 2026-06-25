@@ -2,7 +2,48 @@
 
 import { motion } from 'framer-motion';
 
-const projects = [
+type Project = {
+  title: string;
+  impact: string;
+  description: string;
+  details: string[];
+  technologies: string[];
+  github?: string;
+};
+
+const projects: Project[] = [
+  {
+    title: 'RootPilot - Autonomous Incident Investigation Platform',
+    impact: 'End-to-end AI-powered RCA for distributed systems',
+    github: 'https://github.com/rootpilotai/platform',
+    description:
+      'Designed and built an event-driven autonomous incident investigation platform that correlates distributed telemetry, reconstructs failure timelines, performs AI-powered root cause analysis, and delivers actionable investigations.',
+    details: [
+      'Designed an event-driven microservices architecture using RabbitMQ to decouple telemetry ingestion, correlation, AI investigation, notifications, and query APIs',
+      'Implemented OpenTelemetry ingestion pipeline with telemetry normalization, distributed trace propagation, and provider abstractions for future observability integrations',
+      'Built a correlation engine that groups related operational signals into incident contexts using temporal correlation, trace metadata, and service relationships',
+      'Developed an AI investigation pipeline that reconstructs failure timelines, generates structured root cause analysis with confidence scoring, and publishes investigation results asynchronously',
+      'Implemented Elasticsearch persistence layer for incidents and investigations with query APIs exposed through an API Gateway secured using API keys',
+      'Designed pluggable provider abstractions for LLMs, message brokers, notifications, and storage to avoid vendor lock-in and support future extensibility',
+      'Integrated Slack and Discord notification providers with dead-letter queue handling and event-driven delivery after investigation completion',
+      'Validated the platform using the OpenTelemetry Demo application, uncovering real-world telemetry scaling challenges and driving the design of a signal extraction layer to reduce operational noise before correlation'
+    ],
+    technologies: [
+      'Python',
+      'FastAPI',
+      'RabbitMQ',
+      'OpenTelemetry',
+      'Elasticsearch',
+      'Docker',
+      'AsyncIO',
+      'OpenAI',
+      'Discord',
+      'Slack',
+      'Distributed Systems',
+      'Microservices',
+      'Event-Driven Architecture'
+    ],
+  },
   {
     title: 'Accops - Enterprise Workspace, Identity & Cloud Platform',
     impact: '43% faster APIs',
@@ -33,19 +74,6 @@ const projects = [
     ],
   },
   {
-    title: 'EnrichMe AI - AI-Powered Hiring Platform',
-    impact: '500+ submissions',
-    description:
-      'Built scalable backend systems for coding assessments, resume evaluation, and AI-driven hiring workflows.',
-    details: [
-      'Developed coding assessment backend using Judge0 with secure sandboxed execution',
-      'Implemented background evaluation services for asynchronous test case execution',
-      'Integrated OpenAI and DeepSeek APIs to score resumes against job descriptions',
-      'Moved face authentication to AWS SQS and Lambda-based background processing to reduce API latency',
-    ],
-    technologies: ['Node.js', 'AWS SQS', 'AWS Lambda', 'OpenAI', 'DeepSeek', 'Judge0', 'TensorFlow', 'Distributed Systems'],
-  },
-  {
     title: 'IMIX - Wealth Management Platform',
     impact: 'FinTech workflows',
     description:
@@ -57,6 +85,19 @@ const projects = [
       'Gaining exposure to financial workflows, portfolio management, and reporting systems',
     ],
     technologies: ['.NET', 'MS SQL Server', 'Angular', 'FinTech'],
+  },
+  {
+    title: 'EnrichMe AI - AI-Powered Hiring Platform',
+    impact: '500+ submissions',
+    description:
+      'Built scalable backend systems for coding assessments, resume evaluation, and AI-driven hiring workflows.',
+    details: [
+      'Developed coding assessment backend using Judge0 with secure sandboxed execution',
+      'Implemented background evaluation services for asynchronous test case execution',
+      'Integrated OpenAI and DeepSeek APIs to score resumes against job descriptions',
+      'Moved face authentication to AWS SQS and Lambda-based background processing to reduce API latency',
+    ],
+    technologies: ['Node.js', 'AWS SQS', 'AWS Lambda', 'OpenAI', 'DeepSeek', 'Judge0', 'TensorFlow', 'Distributed Systems'],
   },
   {
     title: 'ZentrumHub - Hotel Aggregation Platform',
@@ -143,6 +184,18 @@ export default function Projects() {
                 </div>
               </div>
               <p className="mt-5 text-sm leading-6 text-[var(--text-muted)]">{project.description}</p>
+              {project.github ? (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`View ${project.title} GitHub repository`}
+                  className="mt-5 inline-flex w-fit items-center gap-2 border border-[var(--primary)] bg-[var(--primary)] px-4 py-2 font-mono text-xs font-bold uppercase tracking-[0.12em] text-[var(--surface)] transition hover:-translate-y-0.5 hover:bg-[var(--secondary)] hover:text-white focus:outline-none focus:ring-2 focus:ring-[var(--secondary)] focus:ring-offset-2 focus:ring-offset-[var(--surface)]"
+                >
+                  View GitHub repo
+                  <span aria-hidden="true">-&gt;</span>
+                </a>
+              ) : null}
               <ul className="mt-5 grid gap-2">
                 {project.details.map((detail) => (
                   <li key={detail} className="flex gap-3 text-sm leading-6 text-[var(--text-muted)]">
